@@ -1,15 +1,8 @@
-  # Use an official Ubuntu as a parent image
- FROM ubuntu:20.04
+# Use an official NGINX image to serve static content
+FROM nginx:alpine
 
-    # Set environment to non-interactive
- ENV DEBIAN_FRONTEND=noninteractive
+# Copy your frontend files to the container
+COPY . /usr/share/nginx/html
 
-
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
-      git \
-      curl \
-      ca-certificates \
-      && rm -rf /var/lib/apt/lists/*
- # Set default shell
-    CMD [ "bash" ]
+# Expose the port NGINX will run on
+EXPOSE 80
