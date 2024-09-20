@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontendwebapp
-        image: ArgoCD-Tutorial-Image:main
+        image: tacksam/argocd-tutorial-image-dev
         ports:
         - containerPort: 80
