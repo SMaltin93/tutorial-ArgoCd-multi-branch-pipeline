@@ -1,8 +1,11 @@
-# Use an official NGINX image to serve static content
+# Use NGINX as the base image
 FROM nginx:alpine
 
-# Copy your frontend files to the container
-COPY . /usr/share/nginx/html
+# Copy your frontend files to the container (adjust the path accordingly)
+COPY ./dist /usr/share/nginx/html
 
-# Expose the port NGINX will run on
+# Expose the default NGINX port
 EXPOSE 80
+
+# Start NGINX server
+CMD ["nginx", "-g", "daemon off;"]
