@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dummy-webapp-production
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: webapp=tacksam/dummy-webapp:prod
+    argocd-image-updater.argoproj.io/update-strategy: digest
+    argocd-image-updater.argoproj.io/write-back-method: git
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SMaltin93/tutorial-ArgoCd-multi-branch-pipeline
+    targetRevision: main
+    path: manifests/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dummy-webapp-production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

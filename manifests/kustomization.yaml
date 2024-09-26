@@ -1,0 +1,8 @@
+#Kustomize to enable argo-cd-image-updater to write back new tags
+resources:
+  - webapp-deployment.yaml
+  - webapp-service.yaml
+
+images:
+  - name: tacksam/dummy-webapp
+    newTag: "prod"
