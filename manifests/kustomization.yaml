@@ -3,5 +3,5 @@ resources:
   - webapp-service.yaml
 
 images:
-  - name: noizysthlm/dummy-webapp #Change to your image name
+  - name: tacksam/dummy-webapp #Change to your image name
     newTag: "prod"
