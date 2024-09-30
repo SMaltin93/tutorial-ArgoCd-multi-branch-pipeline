@@ -1,0 +1,7 @@
+resources:
+  - webapp-deployment.yaml
+  - webapp-service.yaml
+
+images:
+  - name: tacksam/dummy-webapp #Change to your image name
+    newTag: "prod"
