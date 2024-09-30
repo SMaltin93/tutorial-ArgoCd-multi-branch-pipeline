@@ -4,4 +4,4 @@ resources:
 
 images:
   - name: tacksam/dummy-webapp #Change to your image name
-    newTag: "prod"
+    newTag: "dev"
